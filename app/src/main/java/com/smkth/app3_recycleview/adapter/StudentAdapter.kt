@@ -21,6 +21,8 @@ class StudentAdapter(
         val tvName: TextView = itemView.findViewById(R.id.tvNama)
         val tvNis: TextView = itemView.findViewById(R.id.tvNis)
         val tvKelas: TextView = itemView.findViewById(R.id.tvKelas)
+        val tvJurusan: TextView = itemView.findViewById(R.id.tvJurusan)
+        val tvSekolah: TextView = itemView.findViewById(R.id.tvSekolah)
         val btnHapus: View = itemView.findViewById(R.id.btnHapus)
 
     }
@@ -37,6 +39,8 @@ class StudentAdapter(
         holder.tvName.text = student.nama
         holder.tvNis.text = "NIS: ${student.nis}"
         holder.tvKelas.text = "Kelas: ${student.kelas}"
+        holder.tvJurusan.text = "Jurusan: ${student.jurusan}"
+        holder.tvSekolah.text = "Sekolah: ${student.sekolah}"
 
         // Klik tombol HAPUS
         holder.btnHapus.setOnClickListener {
@@ -65,6 +69,8 @@ class StudentAdapter(
                     intent.putExtra("student_nama", student.nama)
                     intent.putExtra("student_nis", student.nis)
                     intent.putExtra("student_kelas", student.kelas)
+                    intent.putExtra("student_jurusan", student.jurusan)
+                    intent.putExtra("student_sekolah", student.sekolah)
                     context.startActivity(intent)
                 }
                 .setNegativeButton("Batal", null)
