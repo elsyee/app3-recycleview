@@ -16,27 +16,33 @@ class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
+
+        // Atur padding agar tidak kena status bar / navigasi
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        // Inisialisasi TextView
         tvNama = findViewById(R.id.tvNama)
         tvNis = findViewById(R.id.tvNis)
         tvKelas = findViewById(R.id.tvKelas)
         tvJurusan = findViewById(R.id.tvJurusan)
         tvSekolah = findViewById(R.id.tvSekolah)
 
+        // Ambil data dari intent
         val nama = intent.getStringExtra("student_nama")
         val nis = intent.getStringExtra("student_nis")
         val kelas = intent.getStringExtra("student_kelas")
         val jurusan = intent.getStringExtra("student_jurusan")
         val sekolah = intent.getStringExtra("student_sekolah")
 
-        tvNama.text = nama
-        tvNis.text = nis
-        tvKelas.text = kelas
-        tvJurusan.text = jurusan
-        tvSekolah.text = sekolah
+        // Set text lengkap dengan keterangannya
+        tvNama.text = "Nama: $nama"
+        tvNis.text = "NIS: $nis"
+        tvKelas.text = "Kelas: $kelas"
+        tvJurusan.text = "Jurusan: $jurusan"
+        tvSekolah.text = "Sekolah: $sekolah"
     }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:orientation="vertical"
@@ -12,18 +12,18 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Biodata Siswa"
+        android:text="@string/biodata_siswa"
         android:gravity="center"
         android:textSize="40sp"
         android:textColor="@color/black"
-        android:textStyle="bold"
+
         android:layout_marginBottom="20dp"/>
     <ImageView
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_gravity="center"
         android:src="@drawable/fotosiswa"
-        android:contentDescription="Icon Siswa"
+        android:contentDescription="@string/icon_siswa"
         android:layout_marginBottom="30dp"/>
 
     <TextView
@@ -50,11 +50,11 @@
 
     <TextView
         android:id="@+id/tvJurusan"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
         android:layout_gravity="center"
         android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tvSekolah"
