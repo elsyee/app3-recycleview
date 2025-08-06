@@ -14,13 +14,15 @@ import com.smkth.app3_recycleview.model.Student
 
 class StudentAdapter(
     private val context: Context,
-    private val studentList: List<Student>
+    private val studentList: MutableList<Student>
 ) : RecyclerView.Adapter<StudentAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvName: TextView = itemView.findViewById(R.id.tvNama)
         val tvNis: TextView = itemView.findViewById(R.id.tvNis)
         val tvKelas: TextView = itemView.findViewById(R.id.tvKelas)
+        val btnHapus: View = itemView.findViewById(R.id.btnHapus)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -36,7 +38,22 @@ class StudentAdapter(
         holder.tvNis.text = "NIS: ${student.nis}"
         holder.tvKelas.text = "Kelas: ${student.kelas}"
 
+        // Klik tombol HAPUS
+        holder.btnHapus.setOnClickListener {
+            val builder = AlertDialog.Builder(context)
+            builder.setTitle("Hapus Data")
+                .setMessage("Yakin ingin menghapus ${student.nama}?")
+                .setPositiveButton("Hapus") { _, _ ->
+                    studentList.removeAt(position)
+                    notifyItemRemoved(position)
+                    notifyItemRangeChanged(position, studentList.size)
+                    Toast.makeText(context, "${student.nama} dihapus", Toast.LENGTH_SHORT).show()
+                }
+                .setNegativeButton("Batal", null)
+                .show()
+        }
 
+        // Klik item (buka detail)
         holder.itemView.setOnClickListener {
             Toast.makeText(context, "Memilih ${student.nama}", Toast.LENGTH_SHORT).show()
 

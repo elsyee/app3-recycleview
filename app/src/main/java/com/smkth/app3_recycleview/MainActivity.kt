@@ -7,7 +7,8 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.smkth.app3_recycleview.adapter.StudentAdapter
-import com.smkth.app3_recycleview.utils.DummyData
+import com.smkth.app3_recycleview.data.DummyData
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -24,5 +25,6 @@ class MainActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = StudentAdapter(this, DummyData.getStudentList())
+
     }
 }
